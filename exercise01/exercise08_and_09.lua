@@ -33,7 +33,7 @@ local function primesUntil(number)
 end
 
  
---primesUntil(50)
+primesUntil(50)
 
 -- Write a Lua function that calculates the 15 first Mersenne primes.
 -- A Mersenne prime is a number p such that 2^p - 1 is prime.
