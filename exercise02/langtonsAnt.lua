@@ -11,7 +11,7 @@ EAST = 6
 
 -- initial parameters
 heading = NORTH
-antPosition = Coord{x = 25, y = 25}
+antPosition = Coord{x = 35, y = 40}
 
 --[[function that creates an observer to show the cellular automaton
 this function follows the TerraME syntax for creating a "map" observer
@@ -40,7 +40,7 @@ function createMap (langtonsAnt)
 end
 
 --[[ 
-function that creates a Timer (clock) for the "life" model. The Timer
+function that creates a Timer (clock) for the "langtonsAnt" model. The Timer
 has a single Event which performs three actions at the start of 
 a new time cycle (a new tick of the clock):
 (a) synchronize the cell space (makes the past equal to the present)
@@ -54,7 +54,7 @@ function createTimer (langtonsAnt)
 			langtonsAnt.cells:synchronize()
 			rules(langtonsAnt)    -- 
 			langtonsAnt.cells:notify()
-			wait (10) 
+			-- wait (10) 
 		end}
 	}
 end
@@ -69,20 +69,17 @@ function rules (langtonsAnt)
 			langtonsAnt.cells:getCell(antPosition).state = BLACK
 			antPosition:set{x = antPosition:get().x + 1, y = antPosition:get().y}
 			return
-		end
-		if (heading == SOUTH) then
+		elseif (heading == SOUTH) then
 			heading = WEST
 			langtonsAnt.cells:getCell(antPosition).state = BLACK
 			antPosition:set{x = antPosition:get().x - 1, y = antPosition:get().y}
 			return
-		end
-		if (heading == EAST) then
+		elseif (heading == EAST) then
 			heading = SOUTH
 			langtonsAnt.cells:getCell(antPosition).state = BLACK
 			antPosition:set{x = antPosition:get().x, y = antPosition:get().y + 1}
 			return
-		end
-		if (heading == WEST) then
+		elseif (heading == WEST) then
 			heading = NORTH
 			langtonsAnt.cells:getCell(antPosition).state = BLACK
 			antPosition:set{x = antPosition:get().x , y = antPosition:get().y - 1}
@@ -96,20 +93,17 @@ function rules (langtonsAnt)
 			langtonsAnt.cells:getCell(antPosition).state = WHITE
 			antPosition:set{x = antPosition:get().x - 1, y = antPosition:get().y}
 			return
-		end
-		if (heading == SOUTH) then
+		elseif (heading == SOUTH) then
 			heading = EAST
 			langtonsAnt.cells:getCell(antPosition).state = WHITE
 			antPosition:set{x = antPosition:get().x + 1, y = antPosition:get().y}
 			return
-		end
-		if (heading == EAST) then
+		elseif (heading == EAST) then
 			heading = NORTH
 			langtonsAnt.cells:getCell(antPosition).state = WHITE
 			antPosition:set{x = antPosition:get().x , y = antPosition:get().y - 1}
 			return
-		end
-		if (heading == WEST) then
+		elseif (heading == WEST) then
 			heading = SOUTH
 			langtonsAnt.cells:getCell(antPosition).state = WHITE
 			antPosition:set{x = antPosition:get().x, y = antPosition:get().y + 1}
@@ -158,8 +152,8 @@ end
 --define the CA (size, legend) 
 langtonsAnt =  CellularAutomata {
 	cells = CellularSpace{ 
-		xdim = 50, 
-		ydim = 50,
+		xdim = 80, 
+		ydim = 80,
 		attribute = {"state"}
 	},
 	legend = Legend {
@@ -176,4 +170,4 @@ function wait(n)
 end
 
 -----
-run (langtonsAnt, 1520) 
+run (langtonsAnt, 12000) 
