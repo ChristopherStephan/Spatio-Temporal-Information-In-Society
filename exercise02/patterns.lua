@@ -1,4 +1,3 @@
-
 --[[
 function that wait for a certain time - to see the simulation better
 ]]
@@ -272,6 +271,7 @@ function rpentomino()
 return cs
 end
 
+--LWSS - The smallest known orthogonally moving spaceship
 --[[
 .O..O
 O
@@ -296,6 +296,51 @@ function spaceship()
 	cs:getCell(Coord{x=1,y=3}).state = ALIVE
 	cs:getCell(Coord{x=2,y=3}).state = ALIVE
 	cs:getCell(Coord{x=3,y=3}).state = ALIVE
+
+return cs
+end
+
+-- Blinker - The smallest and most common oscillator.
+-- OOO
+
+function oscillator()
+	local cs = CellularSpace{ 
+		xdim = 4, 
+		ydim = 3
+	}
+	forEachCell(cs, function(cell)
+		cell.state = DEAD
+	end)
+
+	cs:getCell(Coord{x=0,y=0}).state = ALIVE
+	cs:getCell(Coord{x=1,y=0}).state = ALIVE
+	cs:getCell(Coord{x=2,y=0}).state = ALIVE
+	
+return cs
+end
+
+-- Century - A methuselah with lifespan of 103.
+--[[
+..OO
+OOO
+.O
+]]
+function methuselah()
+	local cs = CellularSpace{ 
+		xdim = 4, 
+		ydim = 3
+	}
+	forEachCell(cs, function(cell)
+		cell.state = DEAD
+	end)
+
+	cs:getCell(Coord{x=2,y=0}).state = ALIVE
+	cs:getCell(Coord{x=3,y=0}).state = ALIVE
+	cs:getCell(Coord{x=0,y=1}).state = ALIVE
+	cs:getCell(Coord{x=1,y=1}).state = ALIVE
+	cs:getCell(Coord{x=2,y=1}).state = ALIVE
+	cs:getCell(Coord{x=1,y=2}).state = ALIVE
+	
 
 return cs
 end
