@@ -130,13 +130,17 @@ function CellularAutomata(life)
 
 	insert_pattern (life.cells, figureeight(), 3, 3)
 
-	insert_pattern (life.cells, pentadecathlon(), 15, 5)
+	insert_pattern (life.cells, pentadecathlon(), 15, 15)
 	
-	insert_pattern (life.cells, octagon(), 3, 15)
+	insert_pattern (life.cells, octagon(), 25, 25)
 
-	--insert_pattern (life.cells, pulsar(), 15, 15)
+	insert_pattern (life.cells, pulsar(), 45, 45)
 
-	insert_pattern (life.cells, spaceship(), 15, 15)
+	insert_pattern (life.cells, spaceship(), 65, 65)
+	
+	insert_pattern (life.cells, oscillator(), 85, 85)
+	
+	insert_pattern (life.cells, methuselah(), 105, 105)
 
 	-- timer
 	createTimer (life)

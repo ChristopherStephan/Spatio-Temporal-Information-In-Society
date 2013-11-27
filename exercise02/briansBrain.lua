@@ -1,6 +1,4 @@
-
-
--- states of the automaton (dead or alive)
+-- states of a cell
 ON = 1
 OFF = 2
 DYING = 3
@@ -54,8 +52,7 @@ function createTimer (briansBrain)
 	}
 end
 --[[ 
-function to count the neighbors of a cell that are in a given state
-	always reads from the past copy of the CA
+helper function to find out if a cell has exactly two cells with the state ON
 ]]
 function hasTwoNeighborsOn(cell)
 	count = 0
@@ -74,7 +71,7 @@ end
 
 
 --[[ 
-the rules of the game of briansBrain
+the rules of the Brian's Brain
 ]]
 
 function rules (briansBrain)
@@ -101,7 +98,7 @@ initialization - random states (not very interesting)
 function initCA (briansBrain)
 
 	forEachCell(briansBrain.cells, function(cell)
-		cell.state = math.random(1,2)
+		cell.state = math.random(1, 3)
 	end)
 	--briansBrain.cells:synchronize()
 
