@@ -152,8 +152,8 @@ define the CA (size, legend)
 ]]
 life =  CellularAutomata {
 	cells = CellularSpace{ 
-		xdim = 50, 
-		ydim = 50,
+		xdim = 120, 
+		ydim = 120,
 		attribute = {"state"}
 	},
 	legend = Legend {
