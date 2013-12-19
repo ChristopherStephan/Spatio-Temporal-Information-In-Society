@@ -116,14 +116,11 @@ function createEnvironment (model)
 	model.env:createPlacement{strategy = "random", max = 1}				
 end
 
-function run (model, time)
-	model.timer:execute (time)
-end
-
 
 function run (model, time)
 	model.timer:execute (time)
 end
+
 
 function AgentModel(model)
 	createCellSpace(model)
