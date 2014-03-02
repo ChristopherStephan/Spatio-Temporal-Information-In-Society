@@ -8,6 +8,9 @@ Exercises from the class on Spatio-Temporal Information in Society. The models i
 * exercise02: Langton's Ant, Brian's Brain, Game of Life
 * exercise03: Butterfly Model
 * exercise04: Barros City Peripherization Model
+* exercise05: Sugarscape
+* exercise06: Prisoner's dilemma
+* exercise07: A simple cellular automaton model for influenza A viral infections
 
 
 http://geochange.info/doku.php?id=st-society-classes2013
