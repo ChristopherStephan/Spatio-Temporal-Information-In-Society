@@ -93,7 +93,7 @@ function createAgent (model)
 			local halfedSocietyDim = math.floor(model.cellSpaceDim / 2)
 			local center = Coord{ x = halfedSocietyDim, y = halfedSocietyDim} 
 			model.center = model.cellspace:getCell(center)
-			self:enter (model.centroid)
+			self:enter(model.center)
 			findPlace(self) 
 		end
 	}
